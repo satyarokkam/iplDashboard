@@ -1,0 +1,18 @@
+.team-match-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.CSK-bgc {
+  background-image: linear-gradient(to bottom, #f7db00, #0f172a);
+}
+.description {
+  color: #ffffff;
+}
+.banner {
+  margin-top: 10em;
+  margin-bottom: 5em;
+}
+.latest-match-container {
+  align-self: flex-start;
+}
