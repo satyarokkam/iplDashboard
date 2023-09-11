@@ -1,8 +1,6 @@
 import Loader from 'react-loader-spinner'
 import {Component} from 'react'
-
 import LatestMatch from '../LatestMatch'
-
 import './index.css'
 
 class TeamMatches extends Component {
@@ -50,9 +48,7 @@ class TeamMatches extends Component {
   render() {
     const {matchDetails, teamName, isLoading} = this.state
     const {teamBannerUrl} = matchDetails
-    console.log(matchDetails)
     const teamBgc = `${teamName}-bgc`
-    console.log(teamBgc)
     return (
       <div>
         {isLoading ? (
@@ -63,7 +59,7 @@ class TeamMatches extends Component {
             <div className="latest-match-container">
               <p className="description">Latest Match</p>
               <LatestMatch
-                latestDetailsMatch={matchDetails.latestMatchDetails}
+                latestMatchDetailsInfo={matchDetails.latestMatchDetails}
               />
             </div>
           </div>
