@@ -1,3 +1,50 @@
 .latest-match-details-container {
+  color: #ffffff;
+  width: 80vw;
+  background-color: #000000;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+.match-details {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.match-info,
+.previous-match-info {
+  margin: 0px;
+  width: 20vw;
+  font-size: 25px;
+}
+.competing-team,
+.venue,
+.result {
+  margin-bottom: 10px;
+}
+.date {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.competing-logo {
+  width: 15vw;
+  height: 25vh;
+}
+.description {
+  text-align: left;
+}
+
+.headings {
+  font-size: 30px;
+}
+.innings {
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+.competing-team {
+  font-size: 30px;
+}
+.venue,
+.result {
+  font-size: 18px;
 }

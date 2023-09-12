@@ -1,6 +1,7 @@
 import Loader from 'react-loader-spinner'
 import {Component} from 'react'
 import LatestMatch from '../LatestMatch'
+import MatchCard from '../MatchCard'
 import './index.css'
 
 class TeamMatches extends Component {
@@ -8,6 +9,7 @@ class TeamMatches extends Component {
     matchDetails: {},
     teamName: '',
     isLoading: false,
+    recentMatchesList: [],
   }
 
   componentDidMount() {
@@ -29,38 +31,68 @@ class TeamMatches extends Component {
     venue: data.venue,
   })
 
+  getRecentList = recentMatchData =>
+    recentMatchData.map(each => ({
+      competingTeam: each.competing_team,
+      competingTeamLogo: each.competing_team_logo,
+      date: each.date,
+      firstInnings: each.first_innings,
+      id: each.id,
+      manOfTheMatch: each.man_of_the_match,
+      matchStatus: each.match_status,
+      result: each.result,
+      secondInnings: each.second_innings,
+      umpires: each.umpires,
+      venue: each.venue,
+    }))
+
   getTeamMatchesList = async () => {
     const {match} = this.props
     const {params} = match
     const {id} = params
 
-    const fetchData = await fetch(` https://apis.ccbp.in/ipl/${id}`)
+    const fetchData = await fetch(`https://apis.ccbp.in/ipl/${id}`)
     const response = await fetchData.json()
     console.log(response)
     const formattedData = {
       teamBannerUrl: response.team_banner_url,
       latestMatchDetails: this.getLatestMatch(response.latest_match_details),
-      recentMatches: response.recent_matches,
+      recentMatches: this.getRecentList(response.recent_matches),
     }
-    this.setState({matchDetails: formattedData, teamName: id, isLoading: false})
+
+    this.setState({
+      matchDetails: formattedData,
+      teamName: id,
+      isLoading: false,
+      recentMatchesList: formattedData.recentMatches,
+    })
   }
 
   render() {
-    const {matchDetails, teamName, isLoading} = this.state
+    const {matchDetails, teamName, isLoading, recentMatchesList} = this.state
     const {teamBannerUrl} = matchDetails
     const teamBgc = `${teamName}-bgc`
+    console.log(recentMatchesList)
     return (
       <div>
         {isLoading ? (
-          <Loader type="Oval" color="#ffffff" height={50} width={50} />
+          <div>
+            <Loader type="Oval" color="#ffffff" height={50} width={50} />
+          </div>
         ) : (
           <div className={`team-match-container ${teamBgc}`}>
-            <img src={teamBannerUrl} alt="team banner" className="banner" />
+            <img
+              src={teamBannerUrl}
+              alt="team banner"
+              className="team banner"
+            />
             <div className="latest-match-container">
-              <p className="description">Latest Match</p>
-              <LatestMatch
-                latestMatchDetailsInfo={matchDetails.latestMatchDetails}
-              />
+              <LatestMatch {...matchDetails.latestMatchDetails} />
+              <ul className="unOrder-List-Match-Card">
+                {recentMatchesList.map(eachMatch => (
+                  <MatchCard previousMatch={eachMatch} key={eachMatch.id} />
+                ))}
+              </ul>
             </div>
           </div>
         )}

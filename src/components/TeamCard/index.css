@@ -1,22 +1,26 @@
 .list-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   list-style: none;
   background-color: #ffffff33;
   border-radius: 10px;
   margin: 20px;
-  width: 30vw;
+  width: 20vw;
   height: 25vh;
   padding: 20px;
+  font-family: 'Roboto';
+  border: solid 4px #ffffff;
 }
 
 .team-name {
   color: #ffffff;
+  font-size: 20px;
 }
 
 .team-logo {
-  width: 10vw;
+  width: 8vw;
+  margin-right: 10px;
   height: 15vh;
 }
 .nav-link {

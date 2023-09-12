@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: 'Roboto';
+  font-family: 'Bree Serif';
   margin: auto;
 }
 .main-container {
@@ -14,11 +14,11 @@
   justify-content: space-between;
   align-items: center;
   height: 30vh;
-  width: 20vw;
+  width: 30vw;
 }
 .ipl-logo {
   width: 5vw;
-  height: 7vh;
+  height: 9vh;
 }
 .main-heading {
   color: #ffffff;
@@ -29,6 +29,6 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  min-height: 35vh;
-  width: 1437.6px;
+  min-height: 85vh;
+  width: 60vw;
 }

@@ -1,19 +1,17 @@
 .team-match-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   min-height: 100vh;
 }
 
 .description {
   color: #ffffff;
+  font-size: 35px;
 }
 .banner {
   margin-top: 10em;
   margin-bottom: 5em;
-}
-.latest-match-container {
-  align-self: flex-start;
+  width: 80vw;
 }
 
 .CSK-bgc {
@@ -39,4 +37,18 @@
 }
 .DC-bgc {
   background-image: linear-gradient(to bottom, #5755a7, #0f172a);
+}
+
+.latest-match-container {
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+}
+.unOrder-List-Match-Card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 80vw;
+  padding-left: 0px;
 }

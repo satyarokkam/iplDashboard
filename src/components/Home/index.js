@@ -34,7 +34,9 @@ class Home extends Component {
     return (
       <div className="main-container">
         {isLoading ? (
-          <Loader type="Oval" color="#ffffff" height={50} width={50} />
+          <div>
+            <Loader type="Oval" color="#ffffff" height={50} width={50} />
+          </div>
         ) : (
           <div>
             <div className="ipl-dashboard-container">
